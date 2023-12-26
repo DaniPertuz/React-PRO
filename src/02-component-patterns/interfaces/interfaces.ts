@@ -8,12 +8,18 @@ export interface ProductProps {
   children?: ReactElement | ReactElement[];
   className?: string;
   style?: React.CSSProperties;
+  onChange?: (args: onChangeArgs) => void;
+  value?: number;
 }
 
 export interface Product {
   id: string;
   title: string;
   img?: string;
+}
+
+export interface ProductInCart extends Product {
+  count: number;
 }
 
 export interface ProductContextProps {
@@ -27,4 +33,9 @@ export interface ProductCardProps {
   Image: (Props: ProductImageProps) => JSX.Element;
   Title: (Props: ProductTitleProps) => JSX.Element;
   Buttons: (Props: ProductButtonProps) => JSX.Element;
+}
+
+export interface onChangeArgs {
+  product: Product;
+  count: number;
 }
